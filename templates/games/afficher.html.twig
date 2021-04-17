@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Game id</th>
+        <th>Game name</th>
+        <th>Game Cover</th>
+        <th>Description</th>
+        <th>Delete</th>
+    </tr>
+    <tr {% for g in Games %}>
+        <td>{{ g.id }}</td>
+        <td>(g.gameName)</td>
+        <td>(( g.Game_cover))</td>
+        <td>{{ g.Description }}</td>
+        <td><a href="{{ path('d',{'id':g.id}) }}">Delete</a></td>
+    </tr{% endfor %}>
+</table>
+</body>
+</html>

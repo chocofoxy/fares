@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tournaments {% endblock %}
+
+{% block body %}
+    <h1>Tournaments </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TrId</th>
+                <th>TrCover</th>
+                <th>GameId</th>
+                <th>Team1Id</th>
+                <th>Team2Id</th>
+                <th>Team3Id</th>
+                <th>Team4Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tournament in tournaments %}
+            <tr>
+                <td>{{ tournament.trId }}</td>
+                <td>{{ tournament.trCover }}</td>
+                <td>{{ tournament.gameId }}</td>
+                <td>{{ tournament.team1Id }}</td>
+                <td>{{ tournament.team2Id }}</td>
+                <td>{{ tournament.team3Id }}</td>
+                <td>{{ tournament.team4Id }}</td>
+                <td>
+                    <a href="{{ path('tournaments_show', {'trId': tournament.trId}) }}">show</a>
+                    <a href="{{ path('tournaments_edit', {'trId': tournament.trId}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tournaments_new') }}">Add Tournaments</a>
+{% endblock %}

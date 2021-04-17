@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TournamentsIntr{% endblock %}
+
+{% block body %}
+    <h1>TournamentsIntr</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>TrId</th>
+                <td>{{ tournaments_intr.trId }}</td>
+            </tr>
+            <tr>
+                <th>TrCover</th>
+                <td>{{ tournaments_intr.trCover }}</td>
+            </tr>
+            <tr>
+                <th>TrLink</th>
+                <td>{{ tournaments_intr.trLink }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tournaments_intr_index') }}">back to list</a>
+
+    <a href="{{ path('tournaments_intr_edit', {'trId': tournaments_intr.trId}) }}">edit</a>
+
+    {{ include('tournaments_intr/_delete_form.html.twig') }}
+{% endblock %}
